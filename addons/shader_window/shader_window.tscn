@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/shader_window/shader_window.gd" type="Script" id=1]
+[ext_resource path="res://addons/shader_window/greyscale.tres" type="Material" id=2]
+[ext_resource path="res://addons/shader_window/negative.tres" type="Material" id=3]
+[ext_resource path="res://addons/shader_window/pixelize.tres" type="Material" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+draw_center = false
+border_width_left = 2
+border_width_top = 20
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 20.0
+expand_margin_bottom = 2.0
+
+[node name="ShaderWindow" type="WindowDialog"]
+margin_left = 376.0
+margin_top = 205.0
+margin_right = 683.0
+margin_bottom = 469.0
+custom_styles/panel = SubResource( 1 )
+window_title = "Screen Space Shader"
+resizable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "greyscale", "negative", "pixelize" ), [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ) ] ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_top = -23.0
+margin_right = 24.0
+margin_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
